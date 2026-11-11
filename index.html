@@ -186,8 +186,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
 <script>
 // Supabase public settings. The anon key is safe in the browser: the
 // waitlist table only lets the public add rows, never read them.
-const SUPABASE_URL = "";
-const SUPABASE_ANON_KEY = "";
+const SUPABASE_URL = "https://pyzwkccypuxtotjyazsb.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_MqpjhKKam4IDmXf3tdQfgQ_6qWxSM8w";
 
   const heroArt = (() => {
     const hatch = Array.from({length:15}, (_, k) => `<path d="M${186 + k * 12} 300l-16 22" />`).join("") + Array.from({length:15}, (_, k) => `<path d="M${186 + k * 12} 322l-16 22" />`).join("") + Array.from({length:15}, (_, k) => `<path d="M${186 + k * 12} 344l-16 22" />`).join("") + Array.from({length:15}, (_, k) => `<path d="M${186 + k * 12} 366l-16 22" />`).join("") + Array.from({length:15}, (_, k) => `<path d="M${186 + k * 12} 388l-16 22" />`).join("");
@@ -264,7 +264,7 @@ form.addEventListener("submit", async (e) => {
     }
     const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
       method: "POST",
-      headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}`, "Content-Type": "application/json", Prefer: "return=minimal" },
+      headers: { apikey: SUPABASE_ANON_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
       body: JSON.stringify({ role: d.role, name: d.name.trim(), email: d.email.trim().toLowerCase(), what: d.what || null, link: d.link || null })
     });
     if (res.ok || res.status === 409) {
